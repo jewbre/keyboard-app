@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Parallax Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+    body, .container-min{
+      min-height: 400px;
+    }
+    .col .full {
+      width: 100%;
+      height: 100%;
+      padding:20px;
+    }
+
+    .container-min .valign {
+      margin: 50% 5%;
+      text-align: center;
+    }
+
+    .btn-container .col {
+      margin-bottom: 10px;
+    }
+
+    #initial-selection .row {
+      margin: 50% 0;
+    }
+
+    .btn-floating {
+      position:absolute;
+      right: 40px;
+      bottom:40px;
+    }
+
+    .modal-footer .btn-large {
+      margin-left: 10px!important;
+    }
+  </style>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Logo</a>
+    </div>
+  </nav>
+
+  <div class="container container-min" id="initial-selection">
+    <div class="row center-align">
+      <div class="col s6">
+        <a class="waves-effect waves-light btn-large" id="selection-display">Display</a>
+      </div>
+      <div class="col s6">
+        <a class="waves-effect waves-light btn-large" id="selection-key">Key</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container btn-container container-min" id="section-keys" style="display: none">
+    <h4>Please, insert your buttons</h4>
+    <div class="row center-align" id="btn-container">
+      <!--Here will go new buttons-->
+    </div>
+
+    <a class="btn-floating btn-large waves-effect waves-light red" id="add-btn" href="#modal1"><i class="material-icons">add</i></a>
+  </div>
+
+  <div class="container container-min" id="section-display" style="display: none">
+    <h5 class="valign" id="display-text"></h5>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Select your letter</h4>
+      <div class="row">
+        <form class="col s12" id="letter-form">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="letter" type="text" class="">
+              <label for="letter">Letter</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-large red">Cancel</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-large" id="add-new-btn">Add</a>
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/socket.io.min.js"></script>
+
+
+  <script src="static/js/Button.js"></script>
+  <script src="static/js/ButtonCollection.js"></script>
+  <script src="static/js/SocketIOSingleton.js"></script>
+  <script src="static/js/KeyRole.js"></script>
+  <script src="static/js/DisplayRole.js"></script>
+  <script src="static/js/InitialSelection.js"></script>
+  <script src="static/js/App.js"></script>
+
+  </body>
+</html>
