@@ -25,6 +25,10 @@
       text-align: center;
     }
 
+    #display-text {
+      margin: 20% 5%;
+    }
+
     .btn-container .col {
       margin-bottom: 10px;
     }
@@ -35,6 +39,11 @@
 
     .modal-footer .btn-large {
       margin-left: 10px!important;
+    }
+
+    #photoContainer img {
+      max-width: 150px;
+      max-height: 150px;
     }
   </style>
 </head>
@@ -71,6 +80,8 @@
 
   <div class="container container-min" id="section-display" style="display: none">
     <h5 class="valign" id="display-text"></h5>
+
+    <div id="photoContainer"></div>
   </div>
 
   <!-- Modal Structure -->
