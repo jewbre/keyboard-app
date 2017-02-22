@@ -29,7 +29,7 @@ class SocketIOSingleton {
 
     public static getInstance() : SocketIOSingleton {
         if(SocketIOSingleton.instance === null) {
-            SocketIOSingleton.instance = new SocketIOSingleton(3000);
+            SocketIOSingleton.instance = new SocketIOSingleton(12345);
         }
         return SocketIOSingleton.instance;
     }

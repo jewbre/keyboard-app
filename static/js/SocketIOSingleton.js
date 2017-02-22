@@ -21,7 +21,7 @@ var SocketIOSingleton = (function () {
     };
     SocketIOSingleton.getInstance = function () {
         if (SocketIOSingleton.instance === null) {
-            SocketIOSingleton.instance = new SocketIOSingleton(3000);
+            SocketIOSingleton.instance = new SocketIOSingleton(12345);
         }
         return SocketIOSingleton.instance;
     };
