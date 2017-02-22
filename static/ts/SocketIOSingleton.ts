@@ -10,7 +10,7 @@ class SocketIOSingleton {
     private constructor(port : number) {
         let self = this;
         // this.io = io(`${window.location.origin}:${port}`);
-        this.io = io(`http://www.deghq.com:${port}`);
+        this.io = io(`http://www.deghq.com/keyboard-app:${port}`);
         this.io.on('connect', function(){
             // self.setUpHeartBeat();
         });
