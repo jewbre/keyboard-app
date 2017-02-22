@@ -7,7 +7,18 @@ var DisplayRole = (function () {
     }
     DisplayRole.prototype.displayText = function (text) {
         var displayText = $('#display-text');
-        displayText.text(displayText.text() + text);
+        var currentText = displayText.text();
+        switch (text) {
+            case 'enter':
+                console.log('do some search, maybe?');
+                break;
+            case 'backspace':
+                currentText = currentText.substr(0, Math.max(0, currentText.length - 1));
+                break;
+            default:
+                currentText += text;
+        }
+        displayText.text(currentText);
     };
     return DisplayRole;
 }());

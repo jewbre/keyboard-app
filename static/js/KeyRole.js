@@ -9,6 +9,14 @@ var KeyRole = (function () {
         $('#add-new-btn').on('click', function () {
             self.addButton();
         });
+        $('#add-enter').on('click', function () {
+            var newBtn = new Button('enter', self.getButtonClickListener());
+            self.buttonCollection.addButton(newBtn);
+        });
+        $('#add-backspace').on('click', function () {
+            var newBtn = new Button('backspace', self.getButtonClickListener());
+            self.buttonCollection.addButton(newBtn);
+        });
         $('#letter-form').on('submit', function (eventObject) {
             eventObject.preventDefault();
             eventObject.stopPropagation();

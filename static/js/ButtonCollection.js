@@ -7,15 +7,14 @@ var ButtonCollection = (function () {
         this.buttons.push(button);
         var buttonsContainer = ButtonCollection.getButtonsContainer();
         // Append to container
-        buttonsContainer.html(buttonsContainer.html() +
-            ButtonCollection.getButtonTemplate(button));
+        buttonsContainer.append(ButtonCollection.getButtonTemplate(button));
         // Set up click listener
         (function (btn) {
             setTimeout(function () {
                 $("#" + ButtonCollection.getButtonId(btn)).on('click', function () {
                     btn.onClick();
                 });
-            }, 1000);
+            }, 500);
         })(button);
     };
     ButtonCollection.getButtonTemplate = function (button) {

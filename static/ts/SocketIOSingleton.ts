@@ -7,9 +7,9 @@ class SocketIOSingleton {
     private io : Socket;
     private heartBeatInterval : number;
 
-    private constructor() {
+    private constructor(port : number) {
         let self = this;
-        this.io = io('http://localhost:3000');
+        this.io = io(`${window.location.origin}:${port}`);
         this.io.on('connect', function(){
             // self.setUpHeartBeat();
         });
@@ -29,7 +29,7 @@ class SocketIOSingleton {
 
     public static getInstance() : SocketIOSingleton {
         if(SocketIOSingleton.instance === null) {
-            SocketIOSingleton.instance = new SocketIOSingleton();
+            SocketIOSingleton.instance = new SocketIOSingleton(3000);
         }
         return SocketIOSingleton.instance;
     }

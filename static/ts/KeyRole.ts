@@ -18,6 +18,16 @@ class KeyRole {
             self.addButton();
         });
 
+        $('#add-enter').on('click', function(){
+            let newBtn = new Button('enter', self.getButtonClickListener());
+            self.buttonCollection.addButton(newBtn);
+        });
+
+        $('#add-backspace').on('click', function(){
+            let newBtn = new Button('backspace', self.getButtonClickListener());
+            self.buttonCollection.addButton(newBtn);
+        });
+
         $('#letter-form').on('submit', function(eventObject){
             eventObject.preventDefault();
             eventObject.stopPropagation();

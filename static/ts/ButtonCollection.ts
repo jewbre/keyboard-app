@@ -9,9 +9,8 @@ class ButtonCollection {
         let buttonsContainer = ButtonCollection.getButtonsContainer();
 
         // Append to container
-        buttonsContainer.html(
-            buttonsContainer.html() +
-                ButtonCollection.getButtonTemplate(button)
+        buttonsContainer.append(
+            ButtonCollection.getButtonTemplate(button)
         );
 
         // Set up click listener
@@ -20,7 +19,7 @@ class ButtonCollection {
                 $(`#${ButtonCollection.getButtonId(btn)}`).on('click', function(){
                     btn.onClick();
                 });
-            }, 1000);
+            }, 500);
         })(button);
 
     }

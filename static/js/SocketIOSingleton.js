@@ -1,8 +1,8 @@
 /// <reference path="../typings/socketio.d.ts" />
 var SocketIOSingleton = (function () {
-    function SocketIOSingleton() {
+    function SocketIOSingleton(port) {
         var self = this;
-        this.io = io('http://localhost:3000');
+        this.io = io(window.location.origin + ":" + port);
         this.io.on('connect', function () {
             // self.setUpHeartBeat();
         });
@@ -21,7 +21,7 @@ var SocketIOSingleton = (function () {
     };
     SocketIOSingleton.getInstance = function () {
         if (SocketIOSingleton.instance === null) {
-            SocketIOSingleton.instance = new SocketIOSingleton();
+            SocketIOSingleton.instance = new SocketIOSingleton(3000);
         }
         return SocketIOSingleton.instance;
     };
