@@ -1,11 +1,14 @@
 class DisplayRole {
 
+    private piano : Piano;
 
     constructor() {
         let self = this;
         SocketIOSingleton.getInstance().declareAsDisplay(function (letter: string) {
             self.displayText(letter);
         });
+
+        this.piano = new Piano();
     }
 
     private displayText(text: string) {
@@ -27,6 +30,7 @@ class DisplayRole {
                 currentText = currentText.substr(0, Math.max(0, currentText.length - 1));
                 break;
             default:
+                this.piano.playNote(text);
                 currentText += text;
         }
 

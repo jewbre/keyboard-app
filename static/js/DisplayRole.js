@@ -4,6 +4,7 @@ var DisplayRole = (function () {
         SocketIOSingleton.getInstance().declareAsDisplay(function (letter) {
             self.displayText(letter);
         });
+        this.piano = new Piano();
     }
     DisplayRole.prototype.displayText = function (text) {
         var displayText = $('#display-text');
@@ -22,6 +23,7 @@ var DisplayRole = (function () {
                 currentText = currentText.substr(0, Math.max(0, currentText.length - 1));
                 break;
             default:
+                this.piano.playNote(text);
                 currentText += text;
         }
         displayText.text(currentText);
