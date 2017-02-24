@@ -53,6 +53,7 @@ class Piano {
     }
 
     public playNote(note: string) {
+        note = note.toLowerCase();
         if(typeof this.keys[note] === "undefined") {
             return;
         }

@@ -45,6 +45,7 @@ var Piano = (function () {
         }
     };
     Piano.prototype.playNote = function (note) {
+        note = note.toLowerCase();
         if (typeof this.keys[note] === "undefined") {
             return;
         }
