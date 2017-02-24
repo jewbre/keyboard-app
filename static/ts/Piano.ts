@@ -13,34 +13,34 @@ class Piano {
     }
 
     private initKeys(): void {
-        this.keys["z"] = new KeyNote("z", true, "#1A", "tone-1A");
-        this.keys["s"] = new KeyNote("s", true, "#1As", "tone-1As");
-        this.keys["x"] = new KeyNote("x", true, "#1B", "tone-1B");
-        this.keys["c"] = new KeyNote("c", true, "#2C", "tone-2C");
-        this.keys["f"] = new KeyNote("f", true, "#2Cs", "tone-2Cs");
-        this.keys["v"] = new KeyNote("v", true, "#2D", "tone-2D");
-        this.keys["g"] = new KeyNote("g", true, "#2Ds", "tone-2Ds");
-        this.keys["b"] = new KeyNote("b", true, "#2E", "tone-2E");
-        this.keys["n"] = new KeyNote("n", true, "#2F", "tone-2F");
-        this.keys["j"] = new KeyNote("j", true, "#2Fs", "tone-2Fs");
-        this.keys["m"] = new KeyNote("m", true, "#2G", "tone-2G");
-        this.keys["k1"] = new KeyNote("k 1", true, "#2Gs", "tone-2Gs");
-        this.keys[",q"] = new KeyNote(", q", true, "#2A", "tone-2A");
-        this.keys["l2"] = new KeyNote("l 2", true, "#2As", "tone-2As");
-        this.keys[".w"] = new KeyNote(". w", true, "#2B", "tone-2B");
-        this.keys["e"] = new KeyNote("e", true, "#3C", "tone-3C");
-        this.keys["4"] = new KeyNote("4", true, "#3Cs", "tone-3Cs");
-        this.keys["r"] = new KeyNote("r", true, "#3D", "tone-3D");
-        this.keys["5"] = new KeyNote("5", true, "#3Ds", "tone-3Ds");
-        this.keys["t"] = new KeyNote("t", true, "#3E", "tone-3E");
-        this.keys["y"] = new KeyNote("y", true, "#3F", "tone-3F");
-        this.keys["7"] = new KeyNote("7", true, "#3Fs", "tone-3Fs");
-        this.keys["u"] = new KeyNote("u", true, "#3G", "tone-3G");
-        this.keys["8"] = new KeyNote("8", true, "#3Gs", "tone-3Gs");
-        this.keys["i"] = new KeyNote("i", true, "#3A", "tone-3A");
-        this.keys["9"] = new KeyNote("9", true, "#3As", "tone-3As");
-        this.keys["o"] = new KeyNote("o", true, "#3B", "tone-3B");
-        this.keys["p"] = new KeyNote("p", true, "#4C", "tone-4C");
+        this.keys["1a"] = new KeyNote("z", true, "#1A", "tone-1A");
+        this.keys["1as"] = new KeyNote("s", true, "#1As", "tone-1As");
+        this.keys["1b"] = new KeyNote("x", true, "#1B", "tone-1B");
+        this.keys["2c"] = new KeyNote("c", true, "#2C", "tone-2C");
+        this.keys["2cs"] = new KeyNote("f", true, "#2Cs", "tone-2Cs");
+        this.keys["2d"] = new KeyNote("v", true, "#2D", "tone-2D");
+        this.keys["2ds"] = new KeyNote("g", true, "#2Ds", "tone-2Ds");
+        this.keys["2e"] = new KeyNote("b", true, "#2E", "tone-2E");
+        this.keys["2f"] = new KeyNote("n", true, "#2F", "tone-2F");
+        this.keys["2fs"] = new KeyNote("j", true, "#2Fs", "tone-2Fs");
+        this.keys["2g"] = new KeyNote("m", true, "#2G", "tone-2G");
+        this.keys["2gs"] = new KeyNote("k 1", true, "#2Gs", "tone-2Gs");
+        this.keys["2a"] = new KeyNote(", q", true, "#2A", "tone-2A");
+        this.keys["2as"] = new KeyNote("l 2", true, "#2As", "tone-2As");
+        this.keys["2b"] = new KeyNote(". w", true, "#2B", "tone-2B");
+        this.keys["3c"] = new KeyNote("e", true, "#3C", "tone-3C");
+        this.keys["3cs"] = new KeyNote("4", true, "#3Cs", "tone-3Cs");
+        this.keys["3d"] = new KeyNote("r", true, "#3D", "tone-3D");
+        this.keys["3ds"] = new KeyNote("5", true, "#3Ds", "tone-3Ds");
+        this.keys["3e"] = new KeyNote("t", true, "#3E", "tone-3E");
+        this.keys["3f"] = new KeyNote("y", true, "#3F", "tone-3F");
+        this.keys["3fs"] = new KeyNote("7", true, "#3Fs", "tone-3Fs");
+        this.keys["3g"] = new KeyNote("u", true, "#3G", "tone-3G");
+        this.keys["3gs"] = new KeyNote("8", true, "#3Gs", "tone-3Gs");
+        this.keys["3a"] = new KeyNote("i", true, "#3A", "tone-3A");
+        this.keys["3as"] = new KeyNote("9", true, "#3As", "tone-3As");
+        this.keys["3b"] = new KeyNote("o", true, "#3B", "tone-3B");
+        this.keys["4c"] = new KeyNote("p", true, "#4C", "tone-4C");
     }
 
     private initChannels(channelMax: number) {
