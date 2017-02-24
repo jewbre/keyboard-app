@@ -25,7 +25,7 @@ var KeyRole = (function () {
     };
     KeyRole.prototype.addButton = function () {
         var letterInput = $('#letter');
-        var value = letterInput.val();
+        var value = this.escapeHtml(letterInput.val().trim());
         if (value) {
             var newBtn = new Button(value, this.getButtonClickListener());
             this.buttonCollection.addButton(newBtn);
@@ -33,13 +33,20 @@ var KeyRole = (function () {
         }
     };
     KeyRole.prototype.getButtonClickListener = function () {
-        var self = this;
         return {
             onClick: function (btn) {
                 SocketIOSingleton.getInstance().sendLetter(btn.letter);
                 console.log('Click on button with: ' + btn.letter);
             }
         };
+    };
+    KeyRole.prototype.escapeHtml = function (unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
     };
     return KeyRole;
 }());

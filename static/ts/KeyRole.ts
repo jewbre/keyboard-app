@@ -38,7 +38,7 @@ class KeyRole {
 
     private addButton() : void {
         let letterInput = $('#letter');
-        let value = letterInput.val();
+        let value = this.escapeHtml(letterInput.val().trim());
 
         if(value) {
             let newBtn = new Button(value, this.getButtonClickListener());
@@ -48,13 +48,21 @@ class KeyRole {
     }
 
     private getButtonClickListener() : ButtonClickListener {
-        let self = this;
         return {
             onClick(btn : Button) {
                 SocketIOSingleton.getInstance().sendLetter(btn.letter);
                 console.log('Click on button with: ' + btn.letter);
             }
         }
+    }
+
+    private escapeHtml(unsafe : string) : string {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
     }
 
 }
