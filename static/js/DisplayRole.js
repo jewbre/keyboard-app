@@ -24,7 +24,6 @@ var DisplayRole = (function () {
                 break;
             default:
                 this.piano.playNote(text);
-                currentText += text;
         }
         displayText.text(currentText);
     };

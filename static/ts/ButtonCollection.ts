@@ -27,7 +27,7 @@ class ButtonCollection {
     private static getButtonTemplate(button: Button): string {
         return `
 <div class="col s12">
-        <a class="waves-effect waves-light btn-large full" id="${ButtonCollection.getButtonId(button)}" data-id="${button.letter}">${button.letter}</a>
+        <a class="waves-effect waves-light btn-large full double-size" id="${ButtonCollection.getButtonId(button)}" data-id="${button.letter}">${button.letter}</a>
       </div>
 `;
     }

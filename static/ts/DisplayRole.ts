@@ -31,7 +31,7 @@ class DisplayRole {
                 break;
             default:
                 this.piano.playNote(text);
-                currentText += text;
+                // currentText += text;
         }
 
         displayText.text(

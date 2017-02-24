@@ -18,7 +18,7 @@ var ButtonCollection = (function () {
         })(button);
     };
     ButtonCollection.getButtonTemplate = function (button) {
-        return "\n<div class=\"col s12\">\n        <a class=\"waves-effect waves-light btn-large full\" id=\"" + ButtonCollection.getButtonId(button) + "\" data-id=\"" + button.letter + "\">" + button.letter + "</a>\n      </div>\n";
+        return "\n<div class=\"col s12\">\n        <a class=\"waves-effect waves-light btn-large full double-size\" id=\"" + ButtonCollection.getButtonId(button) + "\" data-id=\"" + button.letter + "\">" + button.letter + "</a>\n      </div>\n";
     };
     ButtonCollection.getButtonId = function (button) {
         return "button-id-" + button.letter;
