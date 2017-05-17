@@ -1,71 +1,46 @@
 var server = require('http').createServer();
 var io = require('socket.io')(server);
 
+var TIMEOUT_AMOUNT = 5 * 1000; // 5 minutes
+
+var timeout = 0;
+var winner = '';
 var clients = [];
-var displays = [];
 
 io.on('connection', function(client){
 
-    var isSet = false;
-    client.on('newClient', function(){
-        console.log('Event: newClient');
+    clients.push(client);
 
-        if(isSet) {
-            client.disconnect();
-            return;
+    client.on('move', function(data){
+
+        if(typeof(data.letter) !== 'undefined') {
+            winner = data.letter;
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                console.log('winner');
+                broadcastToClients('winner', {winner: winner});
+            }, TIMEOUT_AMOUNT);
+
+            console.log('Event: move');
+            console.log(data);
+
+            broadcastToClients('displayLetter', data.letter);
         }
-        isSet = true;
 
-        clients.push(client);
-    });
-    client.on('newDisplay', function(){
-        console.log('Event: newDisplay');
-        if(isSet) {
-            client.disconnect();
-            return;
-        }
-        isSet = true;
-
-        displays.push(client);
-    });
-
-    client.on('letter', function(data){
-        console.log('Event: newLetter');
-        console.log(data);
-
-        if(typeof data.letter !== 'string') {
-            return;
-        }
-        var letter = data.letter;
-        for(var k in displays) {
-            var display = displays[k];
-            if(!display.disconnected) {
-                display.emit('displayLetter', letter);
-            }
-        }
     });
 
     client.on('disconnect', function () {
         console.log('Event: disconnected');
     });
 
-    // set up a heart beat
-    var pinged = true;
-    client.on('ping', function(){
-        console.log('ping');
-        pinged = true;
-    });
-
-    var interval = setInterval(function () {
-        console.log('Interal check');
-        if(!pinged) {
-            // client.disconnect();
-            clearInterval(interval);
-        } else {
-            pinged = false;
-        }
-    }, 1000);
-
-
 });
+
+function broadcastToClients(eventName, data) {
+    for(var k in clients) {
+        var c = clients[k];
+        if(!c.disconnected) {
+            c.emit(eventName, data);
+        }
+    }
+}
 server.listen(3010);

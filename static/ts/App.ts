@@ -1,9 +1,8 @@
 
 class App {
 
-
     constructor() {
-        new InitialSelection();
+        new KeyRole();
     }
 }
 

@@ -1,6 +1,6 @@
 var App = (function () {
     function App() {
-        new InitialSelection();
+        new KeyRole();
     }
     return App;
 }());

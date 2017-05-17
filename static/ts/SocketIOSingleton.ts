@@ -15,18 +15,6 @@ class SocketIOSingleton {
         });
     }
 
-    private setUpHeartBeat() : void {
-        let self = this;
-        this.heartBeatInterval = setInterval(function(){
-            if(self.io.disconnected) {
-                clearInterval(self.heartBeatInterval);
-            } else {
-                console.log('ping');
-                console.log(self.io.emit('ping'));
-            }
-        }, 200);
-    }
-
     public static getInstance() : SocketIOSingleton {
         if(SocketIOSingleton.instance === null) {
             SocketIOSingleton.instance = new SocketIOSingleton(3010);
@@ -39,14 +27,18 @@ class SocketIOSingleton {
     }
 
     public sendLetter(letter : string) : void {
-        this.io.emit('letter', {letter : letter});
+        this.io.emit('move', {letter : letter});
     }
 
-    public declareAsDisplay(listener : (letter:string) => void) : void {
+    public declareAsDisplay(listener : (letter:string|{winner:string}) => void) : void {
         this.io.emit('newDisplay');
 
         this.io.on('displayLetter',function(data : string) {
             listener(data);
-        })
+        });
+
+        this.io.on('winner', function(data : {winner : string}) {
+            listener(data);
+        });
     }
 }
